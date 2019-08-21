@@ -50,10 +50,9 @@ export class AppComponent implements OnInit {
           let question= 
             [
               {
-                  type: "radiogroup",
-                  title: element.description,
-                  choices: this.readElementValue(element.values),
-                  name: "mvvmUsing", 
+                type: "radiogroup",
+                title: element.description,
+                choices: this.readElementValue(element.values),
               }
             ];
           let pageNum= this.allQuestionArray.length;
