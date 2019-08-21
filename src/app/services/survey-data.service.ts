@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SurveyDataService {
+export class SurveyDataService implements OnInit{
 
   question = {
     "version": "1.2",
@@ -8206,8 +8206,12 @@ export class SurveyDataService {
         name: "page2", 
         questions: [
         
-        //   // { type: "radiogroup", choices: ["Yes","No"],isRequired: true, name: "mvvmUsing", title: "Do you use any MVVM framework?" },
-        //   // { type: "checkbox", choices: [ "AngularJS", "KnockoutJS", "React" ], hasOther: true, isRequired: true, name: "mvvm", title: "What MVVM framework do you use?", visibleIf: "{mvvmUsing} = 'Yes'" } 
+        { type: "radiogroup", 
+        choices: ["Yes","No"],
+        isRequired: true, 
+        name: "mvvmUsing", 
+        title: "Do you use any MVVM framework?" },
+        { type: "checkbox", choices: [ "AngularJS", "KnockoutJS", "React" ], hasOther: true, isRequired: true, name: "mvvm", title: "What MVVM framework do you use?", visibleIf: "{mvvmUsing} = 'Yes'" } 
         ]
       },
       { 
@@ -8254,10 +8258,10 @@ export class SurveyDataService {
             hasOther: true,
             title: "Please choose one of these.",
             choices: [
-                "Show Question Track 1",
-                "Show Question Track 2",
-                "Show Question Track 3",
-                "Show Question Track 4",
+              "Show Question Track 1",
+              "Show Question Track 2",
+              "Show Question Track 3",
+              "Show Question Track 4",
             ]
         },
         {
@@ -8292,9 +8296,18 @@ export class SurveyDataService {
         }, 
     ]
 };
+  createSurveyJson: any;
+  allQuestionArray: any=[];
+  jsonDataForSurvey: { title: string; pages: any; };
 
 
   constructor() { }
+
+  ngOnInit(){
+   
+  }
+
+
 
   getQuestionData(){
     return this.question;
@@ -8305,4 +8318,5 @@ export class SurveyDataService {
   getSampleData(){
     return this.surveyJSON;
   }
+
 }
