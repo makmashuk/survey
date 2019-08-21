@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Survey } from 'survey-angular';
 import { SurveyDataService } from './services/survey-data.service';
+import { readElementValue } from '@angular/core/src/render3/util';
 
 @Component({
   selector: "app-root",
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     
    
-    console.log(this.data.getSampleData());
+    console.log(this.data.question);
     this.jsonDataForSurvey=this.data.getSampleData();
     this.createSurveyJson= this.data.question;
 
@@ -44,14 +45,14 @@ export class AppComponent implements OnInit {
   setQuestion(element){
     switch(element.type){
       case "picklist" : {
-        // console.log(element);
+        console.log(element);
         if(element.multiple == false){
           let question= 
             [
               {
                   type: "radiogroup",
                   title: element.description,
-                  choices: ["yes","No"],
+                  choices: this.readElementValue(element.values),
                   name: "mvvmUsing", 
               }
             ];
@@ -65,6 +66,14 @@ export class AppComponent implements OnInit {
 
     }
     
+  }
+  readElementValue(value) {
+    let choices= [];
+    // console.log(value);
+    value.forEach(element => {
+      choices.push(element.name);
+    });
+    return choices;
   }
 
   addQuestionInJson(pageName,questionArray){
