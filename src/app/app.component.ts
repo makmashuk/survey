@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   setQuestion(element){
     switch(element.type){
       case "picklist" : {
-        console.log(element);
+        // console.log(element);
         if(element.multiple == false){
           let question= 
             [
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
       pages: this.allQuestionArray
     }
 
-    console.log(this.jsonDataForSurveyFromQuestions);
+    // console.log(this.jsonDataForSurveyFromQuestions);
 
   }
 
