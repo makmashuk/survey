@@ -8220,6 +8220,80 @@ export class SurveyDataService {
     ]
   };
 
+  json = {
+    triggers: [
+        {
+            type: "visible",
+            name: "type",
+            operator: "equal",
+            value: "Show Question Track 1",
+            questions: ["showq1"]
+        }, {
+            type: "visible",
+            name: "type",
+            value: "Show Question Track 2",
+            questions: ["showq2"]
+        }, {
+            type: "visible",
+            name: "type",
+            value: "Show Question Track 3",
+            questions: ["showq3"]
+        }, {
+            type: "visible",
+            name: "type",
+            value: "Show Question Track 4",
+            questions: ["showq4"]
+        },
+    ],
+    questions: [
+        {
+            type: "radiogroup",
+            name: "type",
+            isRequired: true,
+            colCount: 4,
+            hasOther: true,
+            title: "Please choose one of these.",
+            choices: [
+                "Show Question Track 1",
+                "Show Question Track 2",
+                "Show Question Track 3",
+                "Show Question Track 4",
+            ]
+        },
+        {
+            type: "text",
+            name: "showq1",
+            isRequired: true,
+            visible: false,
+            title: "Here is some info as part of question track 1",
+        }, 
+        {
+            type: "text",
+            name: "showq2",
+            isRequired: true,
+            visible: false,
+            title: "Here is some info as part of question track 2",
+                
+        }, 
+        {
+            type: "text",
+            name: "showq3",
+            isRequired: true,
+            colCount: 4,
+            visible: false,
+            title: "Here is some info as part of question track 3",
+        }, 
+        {
+            type: "text",
+            name: "showq4",
+            isRequired: true,
+            visible: false,
+            title: "Here is some info as part of question track 4",
+        }, 
+    ]
+};
+
+
   constructor() { }
 
   getQuestionData(){

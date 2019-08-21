@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
  
   ngOnInit() {
 
-    this.json= this.data.surveyJSON;
+    this.json= this.data.json;
     // var survey = new Survey.Model(this.surveyJSON);
     // survey.onComplete.add(sendDataToServer);
     // Survey.SurveyWindowNG.render("surveyElement", {model:survey});
